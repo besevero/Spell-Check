@@ -1,15 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.mycompany.spellchecker;
+package com.mycompany.spellchecker.Calculadora;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author san
  */
-public class DistanciaDamerau extends InterfaceDistancia{
+@Data public class DistanciaDamerau extends InterfaceDistancia{
     
     //Funçao que calcula a distancia de Damerau-Levenshtein
     public int calcular(String palavraInserida, String palavraDicionario)

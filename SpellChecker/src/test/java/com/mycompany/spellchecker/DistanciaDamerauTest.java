@@ -5,6 +5,7 @@
  */
 package com.mycompany.spellchecker;
 
+import com.mycompany.spellchecker.Calculadora.DistanciaDamerau;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

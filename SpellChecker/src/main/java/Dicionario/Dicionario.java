@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Dicionario;
 
 /**
  *
  * @author Bernardo
  */
-public class Testes {
+public class Dicionario {
     
 }
