@@ -43,12 +43,11 @@ public class DistanciaDamerauTest {
      */
     @Test
     public void testCalcular() {
-        System.out.println("calcular");
         DistanciaDamerau instance = new DistanciaDamerau();
 
         assertEquals(0, instance.calcular("casa", "casa"));  //igual
         assertEquals(1, instance.calcular("casa", "casal")); //Quase igual com uma letra a mais
-        //assertEquals(1, instance.calcular("casa", "cas"));   //Quase igual com uma letra a menos
+       // assertEquals(1, instance.calcular("casa", "cas"));   //Quase igual com uma letra a menos
         //assertEquals(4, instance.calcular("casa", "dia"));   //Completamente diferente com uma letra a menos
         assertEquals(4, instance.calcular("casa", "hoje"));  //Completamente diferente com tamanho igual
         assertEquals(4, instance.calcular("casa", "ontem")); //Completamente diferente com uma letra a mais

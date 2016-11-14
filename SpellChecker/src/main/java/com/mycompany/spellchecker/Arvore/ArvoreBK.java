@@ -28,7 +28,7 @@ public class ArvoreBK {
     */
 	public List<String> pesquisa(String palavraDesejada, int distanciaMaxima) 
         {
-            return raiz.busca(palavraDesejada, distanciaMaxima);
+            return raiz.busca(palavraDesejada, distanciaMaxima, calculadoraDistancia);
 	}
 	
 	/**
@@ -53,7 +53,7 @@ public class ArvoreBK {
             {
                 return;
             }
-            
+         
             int distancia = calculadoraDistancia.getTipoEscolhido().calcular(noOriginal.getPalavra(), novoNo.getPalavra());
             No noAuxiliar = noOriginal.buscaFilho(distancia);
 	

@@ -23,17 +23,17 @@ import lombok.NoArgsConstructor;
         * 2 - - - -
         */
        int[][] distancia = new int[tamanhoPalavraInserida+1][tamanhoPalavraDicionario+1];
-       
+      
        //Define o valor que irá popular a tabela
        int custo =0;
        
        //cria a matriz com a tabela de distancia
         
-       for(int i = 0; i <= tamanhoPalavraInserida; i++)
+       for(int i = 0; i < tamanhoPalavraInserida; i++)
        {
            distancia[i][0] = i;
        }
-       for(int j = 0; j <= tamanhoPalavraInserida; j++)
+       for(int j = 0; j < tamanhoPalavraInserida; j++)
        {
            distancia[0][j] = j;
        }

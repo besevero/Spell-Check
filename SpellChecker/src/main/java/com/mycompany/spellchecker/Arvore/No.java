@@ -16,7 +16,6 @@ import lombok.Setter;
     
     private @Getter @Setter String palavra;
     private Map<Integer, No> filhos = new HashMap<Integer, No>();
-    private @Getter @Setter int codigoBusca;
 
     public No(String palavraInserida)
     {
@@ -37,10 +36,9 @@ import lombok.Setter;
     }
 	
     
-    public List<String> busca(String palavraDesejada, int distanciaMaxima) 
+    public List<String> busca(String palavraDesejada, int distanciaMaxima, CalculadoraDistancia calculadora) 
     {
-	CalculadoraDistancia calculadora = new CalculadoraDistancia(codigoBusca);
-        int distancia = calculadora.getTipoEscolhido().calcular(palavra, palavraDesejada);
+	int distancia = calculadora.getTipoEscolhido().calcular(palavra, palavraDesejada);
 	List<String> correspondencias = new LinkedList<String>();
     
         if (distancia <= distanciaMaxima)
@@ -60,7 +58,7 @@ import lombok.Setter;
             {
                 continue;
             }
-		correspondencias.addAll(filho.busca(palavraDesejada, distanciaMaxima));
+		correspondencias.addAll(filho.busca(palavraDesejada, distanciaMaxima, calculadora));
         }
 	
          return correspondencias;
