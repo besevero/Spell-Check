@@ -11,41 +11,49 @@ public class DistanciaLevenshtein extends InterfaceDistancia{
 
    public int calcular(String palavraInserida, String palavraDicionario)
    {
-       
-       int distancia;
-       int tamanhoPalavraInserida = palavraInserida.length();
-       int tamanhoPalavraDicionario = palavraDicionario.length();
-       
-       //Caso as strings estejam vazias
+       int tamanhoPalavraInserida = palavraInserida.length(),
+           tamanhoPalavraDicionario = palavraDicionario.length(),
+           custo = 0;
+       int distancia[][] = new int[tamanhoPalavraInserida+1][tamanhoPalavraDicionario+1];
        
        if(tamanhoPalavraInserida == 0)
        {
-           return 0;
+           return tamanhoPalavraDicionario;
        }
        if(tamanhoPalavraDicionario == 0)
        {
-           return 0;
+           return tamanhoPalavraInserida;
        }
        
-        //Verifica se o último caracter das palavras são iguais
-       
-       if(palavraInserida.charAt(tamanhoPalavraInserida-1) == palavraDicionario.charAt(tamanhoPalavraDicionario-1))
+       for(int i = 0 ; i<= tamanhoPalavraInserida ; i++)
        {
-           distancia = 0;
+           distancia[i][0] = i;
        }
-       else
+       for(int j = 0 ; j <= tamanhoPalavraDicionario ; j++)
        {
-           distancia = 1;
+           distancia[0][j] = j;
        }
+       for(int k = 1 ; k <= tamanhoPalavraInserida ; k++)
+       {
+           for(int l = 1 ; l<=tamanhoPalavraDicionario ; l++)
+           {
+               if(palavraInserida.charAt(k-1) == palavraDicionario.charAt(l-1))
+               {
+                   custo = 0;
+               }
+               else
+               {
+                   custo = 1;
+               }
+               distancia[k][l] = Math.min(distancia[k-1][l] + 1,
+                                          Math.min(distancia[k][l-1] + 1,
+                                          distancia[k-1][l-1] + custo));
+           }
+           
+       }
+       return distancia[tamanhoPalavraInserida][tamanhoPalavraDicionario];
        
-       String palavraInseridaReduzida = palavraInserida.substring(0, tamanhoPalavraInserida-1);
-       String palavraDicionarioReduzida = palavraDicionario.substring(0, tamanhoPalavraDicionario-1);
-       //Loop recursivo para encontrar a distancia
        
-              
-       return Math.min(Math.min(calcular(palavraInseridaReduzida, palavraDicionario)+1,
-                        calcular(palavraInserida, palavraDicionarioReduzida)+1),
-                        calcular(palavraInseridaReduzida, palavraDicionarioReduzida) + distancia);
    }
         
 }

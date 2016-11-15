@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.spellchecker;
+package com.mycompany.spellchecker.Calculadora;
 
-import com.mycompany.spellchecker.Calculadora.CalculadoraDistancia;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -15,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author labccet
+ * @author Bernardo
  */
 public class CalculadoraDistanciaTest {
     
@@ -38,17 +37,20 @@ public class CalculadoraDistanciaTest {
     public void tearDown() {
     }
 
+    /**
+     * Test of insereSelecao method, of class CalculadoraDistancia.
+     */
     @Test
-    public void testSomeMethod() {
-        
-        CalculadoraDistancia instanceDamerau = new CalculadoraDistancia(001);
-        int dist = instanceDamerau.getTipoEscolhido().calcular("casa", "casal");
-        
-        CalculadoraDistancia instanceLevenshtein = new CalculadoraDistancia(000);
-        int dist2 = instanceLevenshtein.getTipoEscolhido().calcular("casa", "casal");
-                
-        assertEquals(1, dist); //testa se está chamando a classe da Damerau
-        assertEquals(1, dist2); // testa se está chamando a classe de Levenshtein
+    public void testInsereSelecao() {
+        int selecaoLevenshtein = 000;
+        int selecaoDamerau = 001;
+        int selecaoErro = 002;
+        CalculadoraDistancia instance = new CalculadoraDistancia();
+        assertEquals(0, instance.insereSelecao(selecaoLevenshtein));
+        assertEquals(1, instance.insereSelecao(selecaoDamerau));
+        assertEquals(-1, instance.insereSelecao(selecaoErro));
     }
+
+    
     
 }

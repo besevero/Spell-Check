@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.spellchecker;
+package com.mycompany.spellchecker.Calculadora;
 
 import com.mycompany.spellchecker.Calculadora.DistanciaLevenshtein;
 import org.junit.After;
@@ -46,12 +46,14 @@ public class DistanciaLevenshteinTest {
         System.out.println("calcular");
         DistanciaLevenshtein instance = new DistanciaLevenshtein();
         
-        assertEquals(0, instance.calcular("casa", "casa"));  //igual
-        assertEquals(1, instance.calcular("casa", "casal")); //Quase igual com uma letra a mais
-        assertEquals(1, instance.calcular("casa", "cas"));   //Quase igual com uma letra a menos
-        assertEquals(3, instance.calcular("casa", "die"));   //Completamente diferente com uma letra a menos
-        assertEquals(4, instance.calcular("casa", "hoje"));  //Completamente diferente com tamanho igual
-        assertEquals(4, instance.calcular("casa", "ontem")); //Completamente diferente com uma letra a mais
+          assertEquals(0, instance.calcular("casa", "casa"));  //igual
+          assertEquals(1, instance.calcular("casa", "casal")); //Quase igual com uma letra a mais
+          assertEquals(1, instance.calcular("casa", "cas"));   //Quase igual com uma letra a menos
+          assertEquals(4, instance.calcular("casa", "die"));   //Completamente diferente com uma letra a menos
+          assertEquals(4, instance.calcular("casa", "hoje"));  //Completamente diferente com tamanho igual
+          assertEquals(5, instance.calcular("casa", "ontem")); //Completamente diferente com uma letra a mais
+          assertEquals(4, instance.calcular("casa", ""));      //Palavra dicionario vazia; 
+          assertEquals(4, instance.calcular("", "casa"));      //Palavra inserida vazia;
 
     }
     

@@ -26,7 +26,7 @@ public class ArvoreBK {
     /**
     * executa busca
     */
-	public List<String> pesquisa(String palavraDesejada, int distanciaMaxima) 
+	public List<String> buscaPalavra(String palavraDesejada, int distanciaMaxima) 
         {
             return raiz.busca(palavraDesejada, distanciaMaxima, calculadoraDistancia);
 	}

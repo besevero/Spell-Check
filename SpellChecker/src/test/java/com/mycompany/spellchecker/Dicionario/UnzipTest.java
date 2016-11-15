@@ -5,6 +5,9 @@
  */
 package com.mycompany.spellchecker.Dicionario;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -46,8 +49,11 @@ public class UnzipTest {
         String arquivoZipado = "C:\\Users\\Bernardo\\Documents\\GitHub\\Spell-Check\\SpellChecker\\src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario\\dictionary_pt-br.zip";
         String pastaSaida = "C:\\Users\\Bernardo\\Documents\\GitHub\\Spell-Check\\SpellChecker\\src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario";
         Unzip instance = new Unzip();
-        instance.unZip(arquivoZipado, pastaSaida);
-
+        ArrayList<String> expResult = new ArrayList<String>();
+        String arquivo = ("C:\\Users\\Bernardo\\Documents\\GitHub\\Spell-Check\\SpellChecker\\src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario\\dictionary pt-br.dic");
+        expResult.add(arquivo);
+        ArrayList<String> result = instance.unZip(arquivoZipado, pastaSaida);
+        assertEquals(expResult, result);
     }
     
 }

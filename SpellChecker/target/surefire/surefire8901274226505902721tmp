@@ -1,0 +1,12 @@
+#surefire
+#Tue Nov 15 19:59:16 BRST 2016
+jpda.address=62501
+maven.ext.class.path=C\:\\Program Files\\NetBeans 8.0.2\\java\\maven-nblib\\netbeans-eventspy.jar;C\:\\Program Files\\NetBeans 8.0.2\\java\\maven-nblib\\netbeans-eventspy.jar;C\:\\Program Files\\NetBeans 8.0.2\\java\\maven-nblib\\netbeans-eventspy.jar;C\:\\Program Files\\NetBeans 8.0.2\\java\\maven-nblib\\netbeans-eventspy.jar
+file.encoding=UTF-8
+jpda.listen=true
+forkMode=once
+user.dir=C\:\\Users\\Bernardo\\Documents\\GitHub\\Spell-Check\\SpellChecker
+localRepository=C\:\\Users\\Bernardo\\.m2\\repository
+test=com.mycompany.spellchecker.DistanciaDamerauTest
+basedir=C\:\\Users\\Bernardo\\Documents\\GitHub\\Spell-Check\\SpellChecker
+maven.surefire.debug=-Xdebug -Xrunjdwp\:transport\=dt_socket,server\=n,address\=62501

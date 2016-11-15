@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /**
@@ -12,14 +14,18 @@ import java.util.zip.ZipInputStream;
  */
 public class Unzip {
      
+    
+    
     /**
      * Função que retira o arquivo do zip
      */
-    public void unZip(String arquivoZipado, String pastaSaida)
+    public ArrayList<String> unZip(String arquivoZipado, String pastaSaida)
     {
 
      byte[] buffer = new byte[1024];
 
+     ArrayList<String> caminhoArquivos = new ArrayList<String>();
+     
      try{
 
     	//Cria um diretório de saida, caso ele não exista
@@ -39,7 +45,7 @@ public class Unzip {
         {
     	   String nomeArquivo = entradaZip.getName();
            File novoArquivo = new File(pastaSaida + File.separator + nomeArquivo);
-
+           caminhoArquivos.add(pastaSaida + File.separator + nomeArquivo);
            //cria pastas não existentes
             new File(novoArquivo.getParent()).mkdirs();
             FileOutputStream streamSaida = new FileOutputStream(novoArquivo);
@@ -62,5 +68,7 @@ public class Unzip {
     {
        ex.printStackTrace();
     }
+    return caminhoArquivos;
    }
+    
 }

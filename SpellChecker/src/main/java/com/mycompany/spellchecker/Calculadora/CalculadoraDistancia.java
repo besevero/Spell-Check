@@ -29,13 +29,19 @@ import lombok.Getter;
 
    public CalculadoraDistancia(int selecao)
    {
-       if(selecao == DISTANCIA_LEVENSHTEIN)
-       {
-           tipoEscolhido = new DistanciaLevenshtein();
-       }
-       if(selecao == DISTANCIA_DEMERAU_LEVENSHTEIN)
-       {
-           tipoEscolhido = new DistanciaDamerau();
+       insereSelecao(selecao);
+   }
+   public int insereSelecao(int selecao){
+       switch(selecao){
+           case(000): 
+               tipoEscolhido = new DistanciaLevenshtein(); 
+               return 0;
+           case(001): 
+               tipoEscolhido = new DistanciaDamerau(); 
+               return 1;
+           default: 
+               System.out.println("Valor Inválido"); 
+               return -1;
        }
    }
 }

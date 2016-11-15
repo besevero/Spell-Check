@@ -29,11 +29,11 @@ import lombok.NoArgsConstructor;
        
        //cria a matriz com a tabela de distancia
         
-       for(int i = 0; i < tamanhoPalavraInserida; i++)
+       for(int i = 0; i <= tamanhoPalavraInserida; i++)
        {
            distancia[i][0] = i;
        }
-       for(int j = 0; j < tamanhoPalavraInserida; j++)
+       for(int j = 0; j <= tamanhoPalavraDicionario; j++)
        {
            distancia[0][j] = j;
        }
@@ -56,7 +56,7 @@ import lombok.NoArgsConstructor;
                        Math.min(distancia[k][l-1]+1, distancia[k-1][l-1]+custo));
                if(k > 1 && l > 1
                   && palavraInserida.charAt(k-1) == palavraDicionario.charAt(l-2)
-                  && palavraInserida.charAt(l-2) == palavraDicionario.charAt(k-1))
+                  && palavraInserida.charAt(k-2) == palavraDicionario.charAt(l-1))
                {
                   distancia[k][l] = Math.min(distancia[k][l], distancia[k-2][l-2]+custo);
                }
