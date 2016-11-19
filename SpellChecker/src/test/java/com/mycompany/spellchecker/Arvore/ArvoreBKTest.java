@@ -39,18 +39,19 @@ public class ArvoreBKTest {
     }
 
     /**
-     * Test of pesquisa method, of class ArvoreBK.
+     * Test of buscaPalavra method, of class ArvoreBK.
      */
     @Test
-    public void testPesquisa() {
-        System.out.println("pesquisa");
-        String palavraDesejada = "Casa";
-        int distanciaMaxima = 1;
+    public void testBuscaPalavra() {
+        System.out.println("buscaPalavra");
+        String palavraDesejada = "";
+        int distanciaMaxima = 0;
         ArvoreBK instance = null;
         List<String> expResult = null;
-        List<String> result = instance.pesquisa(palavraDesejada, distanciaMaxima);
+        List<String> result = instance.buscaPalavra(palavraDesejada, distanciaMaxima);
         assertEquals(expResult, result);
-       
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -59,10 +60,11 @@ public class ArvoreBKTest {
     @Test
     public void testAdicionaNo() {
         System.out.println("adicionaNo");
-        String palavraDesejada = "Casa";
+        String palavraDesejada = "";
         ArvoreBK instance = null;
         instance.adicionaNo(palavraDesejada);
-        
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
     
 }
