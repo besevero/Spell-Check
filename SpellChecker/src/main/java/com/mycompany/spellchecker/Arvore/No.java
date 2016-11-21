@@ -39,15 +39,15 @@ import lombok.Setter;
     public List<String> busca(String palavraDesejada, int distanciaMaxima, CalculadoraDistancia calculadora) 
     {
 	int distancia = calculadora.getTipoEscolhido().calcular(palavra, palavraDesejada);
-	List<String> correspondencias = new LinkedList<String>();
+	List<String> palavrasCorrespondentes = new LinkedList<String>();
     
         if (distancia <= distanciaMaxima)
         {
-            correspondencias.add(palavra);
+            palavrasCorrespondentes.add(palavra);
         }
         if (filhos.isEmpty())
         {
-            return correspondencias;
+            return palavrasCorrespondentes;
         }
         int i = max(1, distancia - distanciaMaxima);
         
@@ -58,9 +58,9 @@ import lombok.Setter;
             {
                 continue;
             }
-		correspondencias.addAll(filho.busca(palavraDesejada, distanciaMaxima, calculadora));
+		palavrasCorrespondentes.addAll(filho.busca(palavraDesejada, distanciaMaxima, calculadora));
         }
 	
-         return correspondencias;
+         return palavrasCorrespondentes;
     }
 }

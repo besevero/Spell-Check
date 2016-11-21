@@ -13,11 +13,9 @@ import java.util.zip.ZipInputStream;
  * @author Bernardo
  */
 public class Unzip {
-     
-    
-    
-    /**
-     * Função que retira o arquivo do zip
+     /**
+     * Função que retira o arquivo do zip e 
+     * retorna o caminho onde o arquivo zip foi feito.
      */
     public ArrayList<String> unZip(String arquivoZipado, String pastaSaida)
     {

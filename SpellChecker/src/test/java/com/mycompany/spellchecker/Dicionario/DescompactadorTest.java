@@ -5,6 +5,7 @@
  */
 package com.mycompany.spellchecker.Dicionario;
 
+import java.io.File;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -40,16 +41,15 @@ public class DescompactadorTest {
 
     @Test
     public void testSomeMethod() {
-        String arquivoZipado = "C:\\Users\\Bernardo\\Documents\\GitHub\\Spell-Check\\SpellChecker\\src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario\\dictionary_pt-br.zip";
-        String pastaSaida = "C:\\Users\\Bernardo\\Documents\\GitHub\\Spell-Check\\SpellChecker\\src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario";            
+        String arquivoZipado = ("src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario\\dictionary_pt-br.zip");
+        String pastaSaida = ("src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario");        
         Descompactador unZipper = new Descompactador(arquivoZipado, pastaSaida);
         
-        ArrayList<String> expResult = new ArrayList<String>();
-        String arquivo = ("C:\\Users\\Bernardo\\Documents\\GitHub\\Spell-Check\\SpellChecker\\src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario\\dictionary pt-br.dic");
+        ArrayList<String> expResult = new ArrayList<>();
+        String arquivo = ("src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario\\dictionary pt-br.dic");
         expResult.add(arquivo);
-        ArrayList<String> result = unZipper.caminhos;
+        ArrayList<String> result = unZipper.getCaminhos();
         assertEquals(expResult, result);
-        
         
     }
     

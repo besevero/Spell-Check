@@ -2,12 +2,13 @@ package com.mycompany.spellchecker.Arvore;
 
 import com.mycompany.spellchecker.Calculadora.CalculadoraDistancia;
 import java.util.List;
+import lombok.Data;
 
 /**
  *
  * @author Bernardo
  */
-public class ArvoreBK {
+@Data public class ArvoreBK {
     
     private No raiz;
     //Seleciona o tipo de distancia a ser utilizada

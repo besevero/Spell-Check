@@ -43,23 +43,29 @@ public class DicionarioTest {
      */
     @Test
     public void testInsercaoPorArquivo() {
-        
-        /*String arquivoZipado = "C:\\Users\\Bernardo\\Documents\\GitHub\\Spell-Check\\SpellChecker\\src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario\\dictionary_pt-br.zip";
-        String pastaSaida = "C:\\Users\\Bernardo\\Documents\\GitHub\\Spell-Check\\SpellChecker\\src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario";            
+        String arquivoZipado = "src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario\\dictionary_pt-br.zip";
+        String pastaSaida = "src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario";            
         Descompactador unZipper = new Descompactador(arquivoZipado, pastaSaida);
         
-        ArrayList<String> caminhosDosArquivos = unZipper.caminhos;
-        int codigo = 000;
-        Dicionario instance = new Dicionario();
-        instance.insercaoPorArquivo(caminhosDosArquivos, codigo);*/
         
-        String arquivoZipado2 = "C:\\Users\\Bernardo\\Documents\\GitHub\\Spell-Check\\SpellChecker\\src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario\\dictionary_pt-br.zip";
-        String pastaSaida2 = "C:\\Users\\Bernardo\\Documents\\GitHub\\Spell-Check\\SpellChecker\\src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario";            
-        Descompactador unZipper2 = new Descompactador(arquivoZipado2, pastaSaida2);
-        ArrayList<String> caminhosDosArquivos = unZipper2.caminhos;
+        int codigo = 000;
+        Dicionario instance = new Dicionario(unZipper, codigo);
+        boolean expResult = true;
+        boolean result = instance.insercaoPorArquivo();
+        assertEquals(expResult, result);
+        
         int codigo2 = 001;
-        Dicionario instance2 = new Dicionario();
-        instance2.insercaoPorArquivo(caminhosDosArquivos, codigo2);
+        Dicionario instance2 = new Dicionario(unZipper, codigo2);
+        boolean expResult2 = true;
+        boolean result2 = instance2.insercaoPorArquivo();
+        assertEquals(expResult2, result2);
+        
+        int codigo3 = 002;
+        Dicionario instance3 = new Dicionario(unZipper, codigo3);
+        boolean expResult3 = false;
+        boolean result3 = instance3.insercaoPorArquivo();
+        assertEquals(expResult3, result3);
+       
     }
     
 }

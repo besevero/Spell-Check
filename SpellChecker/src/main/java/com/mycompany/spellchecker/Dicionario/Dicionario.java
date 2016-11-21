@@ -7,42 +7,56 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import lombok.Data;
 /**
  *
  * @author Bernardo
  */
-public class Dicionario {
+@Data public class Dicionario {
    
-  private ArvoreBK dicionario; 
+  private ArvoreBK dicionarioBK; 
+  private ArrayList<String> caminhosDosArquivos;
 
-  public Dicionario(){}
+  public Dicionario(Descompactador arquivoDescompactado, int codigo){
+      this.caminhosDosArquivos = arquivoDescompactado.getCaminhos();
+      this.dicionarioBK = new ArvoreBK(codigo);
+  }
  
-  public void insercaoPorArquivo(ArrayList<String> caminhosDosArquivos, int codigo)
+  public boolean insercaoPorArquivo()
   {
         BufferedReader fileread;
-        dicionario = new ArvoreBK(codigo);
-        
-        try 
+        if(!dicionarioBK.getCalculadoraDistancia().isValidador())
         {
-            for(int j = 0; j < caminhosDosArquivos.size(); j++)
+            return false;
+        }
+        else
+        {
+            try 
             {
-                fileread = new BufferedReader(new InputStreamReader(new FileInputStream(caminhosDosArquivos.get(j))));
-                String linha;
-                
-                while( ((linha = fileread.readLine()) != null ))
-                { 
-                    dicionario.adicionaNo(linha.toLowerCase());
-                                    }
-                fileread.close();
+                for(int j = 0; j < caminhosDosArquivos.size(); j++)
+                {
+                    fileread = new BufferedReader(new InputStreamReader(new FileInputStream(caminhosDosArquivos.get(j))));
+                    String linha;
+
+                    while((linha = fileread.readLine()) != null )
+                    { 
+                        dicionarioBK.adicionaNo(linha.toLowerCase());
+                    }
+                    fileread.close();
+                }
+
             }
+            catch (FileNotFoundException ex) 
+            {
+                System.out.println("Erro: " + ex.getMessage());
+                return false;
+            }
+            catch (IOException ex) 
+            {
+                System.out.println("Erro: " + ex.getMessage());
+                return false;
+            }
+            return true;
         }
-        catch (FileNotFoundException ex) 
-        {
-            System.out.println("Erro: " + ex.getMessage());
-        }
-        catch (IOException ex) 
-        {
-            System.out.println("Erro: " + ex.getMessage());
-        }
-}
+    }
 }

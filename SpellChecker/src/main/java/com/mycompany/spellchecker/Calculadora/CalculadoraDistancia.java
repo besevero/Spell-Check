@@ -18,30 +18,24 @@ import lombok.Getter;
    private final int DISTANCIA_DEMERAU_LEVENSHTEIN = 001;
    
    private @Getter InterfaceDistancia tipoEscolhido;
-   private @Getter InterfaceDistancia levenshtein = new DistanciaLevenshtein(); 
-   private @Getter InterfaceDistancia damerau = new DistanciaDamerau(); 
-   
+   //verifica se é uma opção valida;
+   private boolean validador;
 //Função que chamará o modo de calculo escolhido
-   
-   public CalculadoraDistancia(){
-      
-   }
-
    public CalculadoraDistancia(int selecao)
    {
-       insereSelecao(selecao);
+       insereSelecao(selecao) ;
    }
-   public int insereSelecao(int selecao){
+   public boolean insereSelecao(int selecao){
        switch(selecao){
            case(000): 
                tipoEscolhido = new DistanciaLevenshtein(); 
-               return 0;
+               return validador = true;
            case(001): 
                tipoEscolhido = new DistanciaDamerau(); 
-               return 1;
+               return validador = true;
            default: 
                System.out.println("Valor Inválido"); 
-               return -1;
+               return validador = false;
        }
    }
 }

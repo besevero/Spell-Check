@@ -45,10 +45,12 @@ public class CalculadoraDistanciaTest {
         int selecaoLevenshtein = 000;
         int selecaoDamerau = 001;
         int selecaoErro = 002;
-        CalculadoraDistancia instance = new CalculadoraDistancia();
-        assertEquals(0, instance.insereSelecao(selecaoLevenshtein));
-        assertEquals(1, instance.insereSelecao(selecaoDamerau));
-        assertEquals(-1, instance.insereSelecao(selecaoErro));
+        CalculadoraDistancia instance = new CalculadoraDistancia(selecaoLevenshtein);
+        CalculadoraDistancia instance2 = new CalculadoraDistancia(selecaoDamerau);
+        CalculadoraDistancia instance3 = new CalculadoraDistancia(selecaoErro);
+        assertEquals(true, instance.isValidador());
+        assertEquals(true, instance2.isValidador());
+        assertEquals(false, instance3.isValidador());
     }
 
     
