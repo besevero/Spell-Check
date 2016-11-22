@@ -17,7 +17,7 @@ import lombok.Getter;
    private final int DISTANCIA_LEVENSHTEIN = 000;
    private final int DISTANCIA_DEMERAU_LEVENSHTEIN = 001;
    
-   private @Getter InterfaceDistancia tipoEscolhido;
+   private @Getter Distancia tipoEscolhido;
    //verifica se é uma opção valida;
    private boolean validador;
 //Função que chamará o modo de calculo escolhido

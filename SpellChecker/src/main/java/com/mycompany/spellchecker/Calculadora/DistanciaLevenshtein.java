@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
  *
  * @author Bernardo
  */
-public class DistanciaLevenshtein extends InterfaceDistancia{
+public class DistanciaLevenshtein extends Distancia{
 
    public int calcular(String palavraInserida, String palavraDicionario)
    {

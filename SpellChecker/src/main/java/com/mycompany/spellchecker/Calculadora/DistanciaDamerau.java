@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
  *
  * @author san
  */
-@Data public class DistanciaDamerau extends InterfaceDistancia{
+@Data public class DistanciaDamerau extends Distancia{
     
     //Funçao que calcula a distancia de Damerau-Levenshtein
     public int calcular(String palavraInserida, String palavraDicionario)
