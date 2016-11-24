@@ -10,7 +10,7 @@ package com.mycompany.spellchecker.Calculadora;
  * @author san
  */
 public abstract class InterfaceDistancia {
- 
+ //classe abstrata
     public abstract int calcular(String primeiraString, String segundaString);
    
 }

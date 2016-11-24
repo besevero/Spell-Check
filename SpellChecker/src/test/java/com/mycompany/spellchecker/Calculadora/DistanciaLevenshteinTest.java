@@ -49,12 +49,14 @@ public class DistanciaLevenshteinTest {
           assertEquals(0, instance.calcular("casa", "casa"));  //igual
           assertEquals(1, instance.calcular("casa", "casal")); //Quase igual com uma letra a mais
           assertEquals(1, instance.calcular("casa", "cas"));   //Quase igual com uma letra a menos
-          assertEquals(4, instance.calcular("casa", "die"));   //Completamente diferente com uma letra a menos
+          assertEquals(4, instance.calcular("casa", "Rio"));   //Completamente diferente com uma letra a menos
           assertEquals(4, instance.calcular("casa", "hoje"));  //Completamente diferente com tamanho igual
           assertEquals(5, instance.calcular("casa", "ontem")); //Completamente diferente com uma letra a mais
           assertEquals(4, instance.calcular("casa", ""));      //Palavra dicionario vazia; 
           assertEquals(4, instance.calcular("", "casa"));      //Palavra inserida vazia;
-
+          assertEquals(4, instance.calcular("1", "casa"));     
+          assertEquals(12, instance.calcular("Hoje", "Rio de Janeiro")); //com espaço e letras repetidas
+          assertEquals(12, instance.calcular("Rio de Janeiro", "Hoje")); //com espaço e letras repetidas
     }
     
 }

@@ -17,20 +17,30 @@ import lombok.Data;
   private ArvoreBK dicionarioBK; 
   private ArrayList<String> caminhosDosArquivos;
 
+    //Construtor da classe
   public Dicionario(Descompactador arquivoDescompactado, int codigo){
       this.caminhosDosArquivos = arquivoDescompactado.getCaminhos();
       this.dicionarioBK = new ArvoreBK(codigo);
   }
  
+  /**
+   * Descompacta o arquivo, 
+   * faz a leitura do arquivo descompactado  e
+   * insere os valores na arvoreBK
+  */
   public boolean insercaoPorArquivo()
-  {
+  {     
         BufferedReader fileread;
+        
+        //Verifica se o códgo da calculadora é correto.
         if(!dicionarioBK.getCalculadoraDistancia().isValidador())
         {
+            //se o código não for correto, a função retorna falso e se encerra
             return false;
         }
         else
         {
+            //se for válido, executa o resto da função.
             try 
             {
                 for(int j = 0; j < caminhosDosArquivos.size(); j++)

@@ -35,7 +35,7 @@ import lombok.Setter;
         filhos.put(posicao, filho);
     }
 	
-    
+//faz a busca entre os nós    
     public List<String> busca(String palavraDesejada, int distanciaMaxima, CalculadoraDistancia calculadora) 
     {
 	int distancia = calculadora.getTipoEscolhido().calcular(palavra, palavraDesejada);

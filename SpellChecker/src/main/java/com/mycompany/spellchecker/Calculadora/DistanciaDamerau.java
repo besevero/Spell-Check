@@ -17,15 +17,11 @@ import lombok.NoArgsConstructor;
            tamanhoPalavraDicionario = palavraDicionario.length();
        /**
         * Variável da Matriz
-        * Exemplo:
-        * 0 1 2 3 4
-        * 1 - - - -
-        * 2 - - - -
         */
        int[][] distancia = new int[tamanhoPalavraInserida+1][tamanhoPalavraDicionario+1];
       
-       //Define o valor que irá popular a tabela
-       int custo =0;
+       //Define o valor que irá popular a tabela da matriz
+       int custoDistancia =0;
        
        //cria a matriz com a tabela de distancia
         
@@ -46,19 +42,19 @@ import lombok.NoArgsConstructor;
            {
                if(palavraInserida.charAt(k-1) == palavraDicionario.charAt(l-1))
                {
-                   custo = 0;
+                   custoDistancia = 0;
                }
                else
                {
-                   custo = 1;
+                   custoDistancia = 1;
                }
                distancia[k][l] = Math.min(distancia[k-1][l]+1,
-                       Math.min(distancia[k][l-1]+1, distancia[k-1][l-1]+custo));
+                       Math.min(distancia[k][l-1]+1, distancia[k-1][l-1]+custoDistancia));
                if(k > 1 && l > 1
                   && palavraInserida.charAt(k-1) == palavraDicionario.charAt(l-2)
                   && palavraInserida.charAt(k-2) == palavraDicionario.charAt(l-1))
                {
-                  distancia[k][l] = Math.min(distancia[k][l], distancia[k-2][l-2]+custo);
+                  distancia[k][l] = Math.min(distancia[k][l], distancia[k-2][l-2]+custoDistancia);
                }
            }
            

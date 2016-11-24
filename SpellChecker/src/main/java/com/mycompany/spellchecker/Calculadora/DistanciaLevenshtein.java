@@ -9,13 +9,15 @@ import lombok.NoArgsConstructor;
  */
 public class DistanciaLevenshtein extends Distancia{
 
+    //faz o cálculo da distancia
    public int calcular(String palavraInserida, String palavraDicionario)
    {
        int tamanhoPalavraInserida = palavraInserida.length(),
            tamanhoPalavraDicionario = palavraDicionario.length(),
-           custo = 0;
+           custoDistanciaOperação = 0;
        int distancia[][] = new int[tamanhoPalavraInserida+1][tamanhoPalavraDicionario+1];
        
+       //veriica se uma das palavras é nula
        if(tamanhoPalavraInserida == 0)
        {
            return tamanhoPalavraDicionario;
@@ -24,7 +26,7 @@ public class DistanciaLevenshtein extends Distancia{
        {
            return tamanhoPalavraInserida;
        }
-       
+       //popula a matriz
        for(int i = 0 ; i<= tamanhoPalavraInserida ; i++)
        {
            distancia[i][0] = i;
@@ -39,15 +41,15 @@ public class DistanciaLevenshtein extends Distancia{
            {
                if(palavraInserida.charAt(k-1) == palavraDicionario.charAt(l-1))
                {
-                   custo = 0;
+                   custoDistanciaOperação = 0;
                }
                else
                {
-                   custo = 1;
+                   custoDistanciaOperação = 1;
                }
                distancia[k][l] = Math.min(distancia[k-1][l] + 1,
                                           Math.min(distancia[k][l-1] + 1,
-                                          distancia[k-1][l-1] + custo));
+                                          distancia[k-1][l-1] + custoDistanciaOperação));
            }
            
        }

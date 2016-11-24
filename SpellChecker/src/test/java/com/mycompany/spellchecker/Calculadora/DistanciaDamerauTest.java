@@ -53,6 +53,9 @@ public class DistanciaDamerauTest {
           assertEquals(5, instance.calcular("casa", "ontem")); //Completamente diferente com uma letra a mais
           assertEquals(4, instance.calcular("casa", ""));      //Segunda palavra vazia; 
           assertEquals(4, instance.calcular("", "casa"));      //Primeira palavra vazia;
+          assertEquals(4, instance.calcular("1", "casa"));     
+          assertEquals(12, instance.calcular("Hoje", "Rio de Janeiro")); //com espaço e letras repetidas
+          assertEquals(12, instance.calcular("Rio de Janeiro", "Hoje")); //com espaço e letras repetidas
     }
     
 }

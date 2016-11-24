@@ -18,13 +18,16 @@ import lombok.Getter;
    private final int DISTANCIA_DEMERAU_LEVENSHTEIN = 001;
    
    private @Getter Distancia tipoEscolhido;
-   //verifica se é uma opção valida;
+
+//verifica se é uma opção valida;
    private boolean validador;
-//Função que chamará o modo de calculo escolhido
+
+//Construtor.
    public CalculadoraDistancia(int selecao)
    {
        insereSelecao(selecao) ;
    }
+//Função que chamará o modo de calculo escolhido
    public boolean insereSelecao(int selecao){
        switch(selecao){
            case(000): 
