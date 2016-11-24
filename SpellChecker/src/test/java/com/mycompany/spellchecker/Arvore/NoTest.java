@@ -43,7 +43,7 @@ public class NoTest {
     /**
      * Test of buscaFilho method, of class No.
      */
-    @Test
+    /*@Test
     public void testBuscaFilho() {
         System.out.println("buscaFilho");
         int posicao = 0;
@@ -54,7 +54,7 @@ public class NoTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-
+*/
     /**
      * Test of incluirFilho method, of class No.
      */
@@ -62,16 +62,18 @@ public class NoTest {
     public void testIncluirFilho() {
         System.out.println("incluirFilho");
         int posicao = 0;
-        No filho = null;
+        No filho = new No("casa");
+        
         No instance = null;
+        
         instance.incluirFilho(posicao, filho);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        assertEquals("casa", instance.getFilhos().get(filho).getPalavra());
     }
 
     /**
      * Test of busca method, of class No.
-     */
+     
     @Test
     public void testBusca() {
         System.out.println("busca");
@@ -85,4 +87,5 @@ public class NoTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+    */
 }

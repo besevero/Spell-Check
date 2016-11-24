@@ -54,19 +54,19 @@ public class DicionarioTest {
         int codigo = 000;
         Dicionario instance = new Dicionario(unZipper, codigo);
         boolean expResult = true;
-        boolean result = instance.insercaoPorArquivo();
+        boolean result = instance.insercaoPorArquivo("casa");
         assertEquals(expResult, result);
         
         int codigo2 = 001;
         Dicionario instance2 = new Dicionario(unZipper, codigo2);
         boolean expResult2 = true;
-        boolean result2 = instance2.insercaoPorArquivo();
+        boolean result2 = instance2.insercaoPorArquivo("cada");
         assertEquals(expResult2, result2);
         
         int codigo3 = 002;
         Dicionario instance3 = new Dicionario(unZipper, codigo3);
         boolean expResult3 = false;
-        boolean result3 = instance3.insercaoPorArquivo();
+        boolean result3 = instance3.insercaoPorArquivo("caixa");
         assertEquals(expResult3, result3);
        
     }

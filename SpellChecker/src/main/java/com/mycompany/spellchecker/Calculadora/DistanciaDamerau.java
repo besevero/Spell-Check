@@ -1,8 +1,6 @@
 package com.mycompany.spellchecker.Calculadora;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
-
 /**
  *
  * @author san
@@ -10,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data public class DistanciaDamerau extends Distancia{
     
     //Funçao que calcula a distancia de Damerau-Levenshtein
-    public int calcular(String palavraInserida, String palavraDicionario)
+    public double calcular(String palavraInserida, String palavraDicionario)
    {
        //Variaveis que definem o tamanho da matriz
        int tamanhoPalavraInserida = palavraInserida.length(),

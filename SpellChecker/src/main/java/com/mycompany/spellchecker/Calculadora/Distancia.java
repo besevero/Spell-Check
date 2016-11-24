@@ -11,6 +11,6 @@ package com.mycompany.spellchecker.Calculadora;
  */
 public abstract class Distancia {
  
-    public abstract int calcular(String primeiraString, String segundaString);
+    public abstract double calcular(String primeiraString, String segundaString);
    
 }

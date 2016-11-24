@@ -15,7 +15,7 @@ import lombok.Setter;
 @Data public class No {
     
     private @Getter @Setter String palavra;
-    private Map<Integer, No> filhos = new HashMap<Integer, No>();
+    private Map<Double, No> filhos = new HashMap<>();
 
     public No(String palavraInserida)
     {
@@ -30,7 +30,7 @@ import lombok.Setter;
     }
     
     //inclui um nó filho
-    public void incluirFilho(int posicao, No filho)
+    public void incluirFilho(double posicao, No filho)
     {
         filhos.put(posicao, filho);
     }
@@ -38,8 +38,8 @@ import lombok.Setter;
     //faz a busca entre os nós    
     public List<String> busca(String palavraDesejada, int distanciaMaxima, CalculadoraDistancia calculadora) 
     {
-	int distancia = calculadora.getTipoEscolhido().calcular(palavra, palavraDesejada);
-	List<String> palavrasCorrespondentes = new LinkedList<String>();
+	double distancia = calculadora.getTipoEscolhido().calcular(palavra, palavraDesejada);
+	List<String> palavrasCorrespondentes = new LinkedList<>();
     //se encontrar insere a palavra na lista de palavras correspondentes
         if (distancia <= distanciaMaxima)
         {
@@ -52,7 +52,7 @@ import lombok.Setter;
         }
         
     //Define o espaço inicial da busca
-        int i = max(1, distancia - distanciaMaxima);
+        int i = (int) max(1, distancia - distanciaMaxima);
     //faz a busca
         for (; i <= distancia + distanciaMaxima; i++) 
         {

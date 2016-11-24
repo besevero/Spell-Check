@@ -1,6 +1,7 @@
 package com.mycompany.spellchecker.Dicionario;
 
 import com.mycompany.spellchecker.Arvore.ArvoreBK;
+import com.mycompany.spellchecker.Arvore.No;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -18,7 +19,8 @@ import lombok.Data;
   private ArrayList<String> caminhosDosArquivos;
 
     //Construtor da classe
-  public Dicionario(Descompactador arquivoDescompactado, int codigo){
+  public Dicionario(Descompactador arquivoDescompactado, int codigo)
+  {
       this.caminhosDosArquivos = arquivoDescompactado.getCaminhos();
       this.arvoreDicionarioBK = new ArvoreBK(codigo);
   }
@@ -28,9 +30,11 @@ import lombok.Data;
    * faz a leitura do arquivo descompactado  e
    * insere os valores na arvoreBK
   */
-  public boolean insercaoPorArquivo()
+  public boolean insercaoPorArquivo(String palavraInicial)
   {     
         BufferedReader fileread;
+        No inicial = new No(palavraInicial);
+        arvoreDicionarioBK.setRaiz(inicial);
         
         //Verifica se o códgo da calculadora é correto.
         if(!arvoreDicionarioBK.getCalculadoraDistancia().isValidador())

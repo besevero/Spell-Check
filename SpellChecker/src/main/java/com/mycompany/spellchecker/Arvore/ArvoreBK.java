@@ -27,9 +27,9 @@ import lombok.Data;
     /**
     * executa busca
     */
-	public List<String> buscaPalavra(String palavraDesejada, int distanciaMaxima) 
+	public List<String> buscaPalavra(String palavraDesejada, double distanciaMaxima) 
         {
-            return raiz.busca(palavraDesejada, distanciaMaxima, calculadoraDistancia);
+            return raiz.busca(palavraDesejada, (int) distanciaMaxima, calculadoraDistancia);
 	}
 	
 	/**
@@ -46,13 +46,13 @@ import lombok.Data;
                 return;
             }
         //calcula a distância entre as palavras em cada nó
-            int distancia = calculadoraDistancia.getTipoEscolhido().calcular(noOriginal.getPalavra(), novoNo.getPalavra());
+            double distancia = calculadoraDistancia.getTipoEscolhido().calcular(noOriginal.getPalavra(), novoNo.getPalavra());
         //Define uma variável auxiliar para fazer a busca
-            No noAuxiliar = noOriginal.buscaFilho(distancia);
+            No noAuxiliar = noOriginal.buscaFilho((int)distancia);
 	//se o auxiliar for nulo insere o nó na árvore.
             if (noAuxiliar == null) 
             {
-                noOriginal.incluirFilho(distancia, novoNo);
+                noOriginal.incluirFilho((int)distancia, novoNo);
             }
         //Se não for nulo repete a operação de modo recursivo
             else
