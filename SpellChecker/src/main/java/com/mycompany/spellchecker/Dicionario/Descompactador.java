@@ -6,6 +6,7 @@ import java.util.ArrayList;
 /**
  *
  * @author Bernardo
+ * Classe para fazer interface entre o unzip e o dicionario.
  */
 @Data public class Descompactador {
 

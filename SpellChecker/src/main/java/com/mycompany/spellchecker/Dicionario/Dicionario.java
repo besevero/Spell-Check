@@ -14,13 +14,13 @@ import lombok.Data;
  */
 @Data public class Dicionario {
    
-  private ArvoreBK dicionarioBK; 
+  private ArvoreBK arvoreDicionarioBK; 
   private ArrayList<String> caminhosDosArquivos;
 
     //Construtor da classe
   public Dicionario(Descompactador arquivoDescompactado, int codigo){
       this.caminhosDosArquivos = arquivoDescompactado.getCaminhos();
-      this.dicionarioBK = new ArvoreBK(codigo);
+      this.arvoreDicionarioBK = new ArvoreBK(codigo);
   }
  
   /**
@@ -33,7 +33,7 @@ import lombok.Data;
         BufferedReader fileread;
         
         //Verifica se o códgo da calculadora é correto.
-        if(!dicionarioBK.getCalculadoraDistancia().isValidador())
+        if(!arvoreDicionarioBK.getCalculadoraDistancia().isValidador())
         {
             //se o código não for correto, a função retorna falso e se encerra
             return false;
@@ -50,7 +50,7 @@ import lombok.Data;
 
                     while((linha = fileread.readLine()) != null )
                     { 
-                        dicionarioBK.adicionaNo(linha.toLowerCase());
+                        arvoreDicionarioBK.adicionaNo(linha.toLowerCase());
                     }
                     fileread.close();
                 }

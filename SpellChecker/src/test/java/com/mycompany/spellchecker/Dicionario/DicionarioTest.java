@@ -5,6 +5,8 @@
  */
 package com.mycompany.spellchecker.Dicionario;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -42,12 +44,13 @@ public class DicionarioTest {
      * Test of insercaoPorArquivo method, of class Dicionario.
      */
     @Test
-    public void testInsercaoPorArquivo() {
+    public void testInsercaoPorArquivo() throws IOException {
         String arquivoZipado = "src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario\\dictionary_pt-br.zip";
         String pastaSaida = "src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario";            
+       
+                
         Descompactador unZipper = new Descompactador(arquivoZipado, pastaSaida);
-        
-        
+                
         int codigo = 000;
         Dicionario instance = new Dicionario(unZipper, codigo);
         boolean expResult = true;

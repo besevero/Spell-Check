@@ -1,10 +1,9 @@
-package Corretor;
+package com.mycompany.spellchecker.Corretor;
 
 import com.mycompany.spellchecker.Arvore.ArvoreBK;
 import com.mycompany.spellchecker.Arvore.No;
 import com.mycompany.spellchecker.Calculadora.CalculadoraDistancia;
 import com.mycompany.spellchecker.Dicionario.Dicionario;
-import com.mycompany.spellchecker.Dicionario.InterfaceDicionario;
 import lombok.Data;
 
 
@@ -15,22 +14,25 @@ import lombok.Data;
 @Data public class Corretor {
     
     private Dicionario dicionarioBase;
-    private int codigo;
+    private int codigoTipoBusca;
     
-    //Inicializa o corretor
-    public Corretor(int codigo, InterfaceDicionario interfaceDicionario)
+    //Inicializa o corretor com o código 
+    public Corretor(int codigo, Dicionario dicionarioUsado)
     {
-        this.codigo = codigo;
-        this.dicionarioBase = interfaceDicionario.getDicionarioInterface();
+        this.codigoTipoBusca = codigo;
+        this.dicionarioBase = dicionarioUsado;
         
     }
     
     
     public String corretorPalavras(String palavraInserida, No noAuxiliar, int precisao)
     {
+      if(raiz != null){
+          //faz a busca da distancia em relação a palavra inserida e compara com a precisão 
+          //se achar retorna a string
+          //se não achar passa para o próximo nó
+      }
       
     }
       
-
-    
 }

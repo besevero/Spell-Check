@@ -35,22 +35,25 @@ import lombok.Setter;
         filhos.put(posicao, filho);
     }
 	
-//faz a busca entre os nós    
+    //faz a busca entre os nós    
     public List<String> busca(String palavraDesejada, int distanciaMaxima, CalculadoraDistancia calculadora) 
     {
 	int distancia = calculadora.getTipoEscolhido().calcular(palavra, palavraDesejada);
 	List<String> palavrasCorrespondentes = new LinkedList<String>();
-    
+    //se encontrar insere a palavra na lista de palavras correspondentes
         if (distancia <= distanciaMaxima)
         {
             palavrasCorrespondentes.add(palavra);
         }
+    //se não houver mais filhos encerra o programa    
         if (filhos.isEmpty())
         {
             return palavrasCorrespondentes;
         }
-        int i = max(1, distancia - distanciaMaxima);
         
+    //Define o espaço inicial da busca
+        int i = max(1, distancia - distanciaMaxima);
+    //faz a busca
         for (; i <= distancia + distanciaMaxima; i++) 
         {
             No filho = filhos.get(i);
@@ -58,6 +61,7 @@ import lombok.Setter;
             {
                 continue;
             }
+            //Se encontrar, adiciona na lista de palavras correspondentes.
 		palavrasCorrespondentes.addAll(filho.busca(palavraDesejada, distanciaMaxima, calculadora));
         }
 	
