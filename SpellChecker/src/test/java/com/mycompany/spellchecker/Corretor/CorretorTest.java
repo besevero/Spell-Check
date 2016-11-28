@@ -50,20 +50,18 @@ public class CorretorTest {
                        
         Descompactador unZipper = new Descompactador(arquivoZipado, pastaSaida);
         
-        String palavraInserida = "caza";
         Dicionario dicionario = new Dicionario(unZipper, 000);
-        dicionario.insercaoPorArquivo(palavraInserida);
+        dicionario.insercaoPorArquivo("kasa");
         
         
         No noAuxiliar = dicionario.getArvoreDicionarioBK().getRaiz();
-        int precisao = 5000;
+        
                 
         Corretor instance = new Corretor(dicionario);
 
-        String expResult = "casa";
-        String result = instance.corretorPalavras(palavraInserida, noAuxiliar, precisao);
+        String result = instance.corretorPalavras("kasa", noAuxiliar, 2);
         
-        assertEquals(expResult, result);
+        assertEquals("casa", result);
     }
     
 }

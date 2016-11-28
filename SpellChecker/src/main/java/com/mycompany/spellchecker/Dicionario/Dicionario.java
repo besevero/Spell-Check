@@ -51,10 +51,14 @@ import lombok.Data;
                 {
                     fileread = new BufferedReader(new InputStreamReader(new FileInputStream(caminhosDosArquivos.get(j))));
                     String linha;
-
+                    No noOriginal = arvoreDicionarioBK.getRaiz();
+                    
                     while((linha = fileread.readLine()) != null )
                     { 
-                        arvoreDicionarioBK.adicionaNo(linha.toLowerCase());
+                        No novoNo = new No(linha);
+                        arvoreDicionarioBK.adicionaNoInterno(noOriginal, novoNo);
+                        noOriginal = novoNo;
+                        
                     }
                     fileread.close();
                 }

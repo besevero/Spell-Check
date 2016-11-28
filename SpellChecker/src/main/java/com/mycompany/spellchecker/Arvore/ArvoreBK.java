@@ -35,7 +35,7 @@ import lombok.Data;
 	/**
 	 * Inclui um novo no como filho
 	 */
-	private void adicionaNoInterno(No noOriginal, No novoNo) 
+	public void adicionaNoInterno(No noOriginal, No novoNo) 
         {
             /**
              * Verifica se o nó a ser inserido é igual ao anterior.
