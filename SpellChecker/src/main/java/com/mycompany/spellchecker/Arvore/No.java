@@ -13,7 +13,7 @@ import lombok.Setter;
 public class No {
     
         private @Getter @Setter String palavra;
-	private HashMap<Double, No> filhos;
+	private HashMap<Integer, No> filhos;
 
 	public No(String palavra) 
         {
@@ -30,7 +30,7 @@ public class No {
 	/**
          * Adicionar o nó na posição do hash
          */ 
-	public void adicionaFilho(double posicao, No noFilho) 
+	public void adicionaFilho(int posicao, No noFilho) 
         {
             filhos.put(posicao, noFilho);
 	}
@@ -70,3 +70,4 @@ public class No {
             return palavra.equals(no.getPalavra());
 	}
 }
+
