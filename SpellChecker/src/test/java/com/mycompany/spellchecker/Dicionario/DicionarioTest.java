@@ -57,7 +57,6 @@ public class DicionarioTest {
         boolean expResult = true;
         boolean result = instance.insercaoPorArquivo();
         assertEquals(expResult, result);
-        System.out.println(instance.getArvoreDicionarioBK());
         
         CalculadoraDistancia damerau = new CalculadoraDistancia(001);
         Dicionario instance2 = new Dicionario(unZipper, damerau);
