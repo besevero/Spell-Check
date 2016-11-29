@@ -24,7 +24,7 @@ public @Data class Teclado {
     private @Getter @Setter double offset2;
     private @Getter @Setter double offset3;
     private double[][] matrizAlfabeto = new double[26][26];
-    private final String ALFABETO = "abcdefghijklmnopqrstuvwxyz";
+    private final String ALFABETO = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     public Teclado() {}
 /**
@@ -133,8 +133,6 @@ public @Data class Teclado {
      */
    public double obtemDistanciaNominal(char a, char b)
    {
-       a = Character.toLowerCase(a);
-       b = Character.toLowerCase(b);
        int posicaoA = 0, posicaoB = 0;
        
        for (int i = 0; i < ALFABETO.length(); i++)

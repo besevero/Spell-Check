@@ -72,7 +72,7 @@ public class TecladoTest {
     /**
      * Test of preparaDistancias method, of class Teclado.
      */
-    Teclado instance2 = new Teclado("QUERTY", "qwertyuiop", "asdfghjkl", "zxcvbnm", 0.5, 0.5);
+    Teclado instance2 = new Teclado("QUERTY", "QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM", 0.5, 0.5);
     double[][] result = instance2.preparaDistancias();
     @Test
     public void testPreparaDistancias() {
@@ -86,8 +86,8 @@ public class TecladoTest {
         assertEquals(0, result[0][0], 0.1);
         assertEquals(0, result[1][1], 0.1);
         assertEquals(0, result[25][25], 0.1);
-        assertEquals(3.16, result[0][1], 0.01);
-        assertEquals(1.41, result[0][2], 0.01);
+        assertEquals(dist(2, 2.5), result[0][1], 0.1);
+        assertEquals(dist(1, 1), result[0][2], 0.1);
         
 
     }
@@ -97,20 +97,20 @@ public class TecladoTest {
      */
     @Test
     public void testObtemDistanciaNominal() {
-        assertEquals(1, instance2.obtemDistanciaNominal('q', 'w'), 0.001);
-        assertEquals(1, instance2.obtemDistanciaNominal('w', 'q'), 0.001);
-        assertEquals(2, instance2.obtemDistanciaNominal('q', 'e'), 0.001);
-        assertEquals(2, instance2.obtemDistanciaNominal('e', 'q'), 0.001);
-        assertEquals(9, instance2.obtemDistanciaNominal('q', 'p'), 0.001);
-        assertEquals(9, instance2.obtemDistanciaNominal('p', 'q'), 0.001);
-        assertEquals(1, instance2.obtemDistanciaNominal('q', 'w'), 0.001);
+        assertEquals(1, instance2.obtemDistanciaNominal('Q', 'W'), 0.1);
+        assertEquals(1, instance2.obtemDistanciaNominal('W', 'Q'), 0.001);
+        assertEquals(2, instance2.obtemDistanciaNominal('Q', 'E'), 0.001);
+        assertEquals(2, instance2.obtemDistanciaNominal('E', 'Q'), 0.001);
+        assertEquals(9, instance2.obtemDistanciaNominal('Q', 'P'), 0.001);
+        assertEquals(9, instance2.obtemDistanciaNominal('P', 'Q'), 0.001);
+        assertEquals(1, instance2.obtemDistanciaNominal('Q', 'W'), 0.001);
         
-        assertEquals(dist(0.5, 1), instance2.obtemDistanciaNominal('q', 'a'), 0.01);
-        assertEquals(dist(0.5, 1), instance2.obtemDistanciaNominal('a', 'q'), 0.01);
-        assertEquals(dist(0.5, 1), instance2.obtemDistanciaNominal('q', 's'), 0.01);
-        assertEquals(dist(1.5, 1), instance2.obtemDistanciaNominal('s', 'q'), 0.01);
-        assertEquals(dist(4.5, 1), instance2.obtemDistanciaNominal('q', 'l'), 0.01);
-  /*      assertEquals(dist(8.5, 1), instance2.obtemDistanciaNominal('l', 'q'), 0.01);
+        assertEquals(dist(0.5, 1), instance2.obtemDistanciaNominal('Q', 'A'), 0.1);
+        assertEquals(dist(0.5, 1), instance2.obtemDistanciaNominal('A', 'Q'), 0.1);
+        assertEquals(dist(0.5, 1), instance2.obtemDistanciaNominal('Q', 'S'), 0.1);
+        assertEquals(dist(1.5, 1), instance2.obtemDistanciaNominal('S', 'Q'), 0.1);
+        assertEquals(dist(7.5, 0.5), instance2.obtemDistanciaNominal('Q', 'L'), 0.1);
+        /*assertEquals(dist(7.5, 1), instance2.obtemDistanciaNominal('L', 'Q'), 0.01);
         assertEquals(dist(1.0, 2), instance2.obtemDistanciaNominal('q', 'z'), 0.01);
         assertEquals(dist(1.0, 2), instance2.obtemDistanciaNominal('z', 'q'), 0.01);
         assertEquals(dist(2.0, 2), instance2.obtemDistanciaNominal('q', 'x'), 0.01);

@@ -41,27 +41,27 @@ public class LeitorTeclados {
                
                 teclado.setModelo(eElement.getAttribute("model"));
                 
-                teclado.setLinha(eElement.getChildNodes().item(1).getTextContent().toLowerCase());
+                teclado.setLinha(eElement.getChildNodes().item(1).getTextContent());
                 
-                teclado.setLinha2(eElement.getChildNodes().item(3).getTextContent().toLowerCase());
+                teclado.setLinha2(eElement.getChildNodes().item(3).getTextContent());
                 
                 if(eElement.getChildNodes().item(3).getAttributes().getNamedItem("offset") != null)
                 {
-                    teclado.setOffset(Double.parseDouble(eElement.getChildNodes().item(3).getAttributes().getNamedItem("offset").getNodeValue()));
-                }
-                else
-                {
-                    teclado.setOffset(0);
-                }
-                        
-                teclado.setLinha3(eElement.getChildNodes().item(5).getTextContent().toLowerCase());
-                if(eElement.getChildNodes().item(5).getAttributes().getNamedItem("offset") != null)
-                {
-                    teclado.setOffset2(Double.parseDouble(eElement.getChildNodes().item(5).getAttributes().getNamedItem("offset").getNodeValue()));
+                    teclado.setOffset2(Double.parseDouble(eElement.getChildNodes().item(3).getAttributes().getNamedItem("offset").getNodeValue()));
                 }
                 else
                 {
                     teclado.setOffset2(0);
+                }
+                        
+                teclado.setLinha3(eElement.getChildNodes().item(5).getTextContent());
+                if(eElement.getChildNodes().item(5).getAttributes().getNamedItem("offset") != null)
+                {
+                    teclado.setOffset3(Double.parseDouble(eElement.getChildNodes().item(5).getAttributes().getNamedItem("offset").getNodeValue()));
+                }
+                else
+                {
+                    teclado.setOffset3(0);
                 }
                 
                 listagemTeclados.add(teclado);
