@@ -45,15 +45,15 @@ public class UnzipTest {
      */
     @Test
     public void testUnZip() {
-        System.out.println("unZip");
-        String arquivoZipado = "C:\\Users\\Bernardo\\Documents\\GitHub\\Spell-Check\\SpellChecker\\src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario\\dictionary_pt-br.zip";
-        String pastaSaida = "C:\\Users\\Bernardo\\Documents\\GitHub\\Spell-Check\\SpellChecker\\src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario";
+        String arquivoZipado = new File("src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario\\dictionary_pt-br.zip").getAbsolutePath();
+        String pastaSaida = new File ("src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario").getAbsolutePath();
         Unzip instance = new Unzip();
         ArrayList<String> expResult = new ArrayList<String>();
-        String arquivo = ("C:\\Users\\Bernardo\\Documents\\GitHub\\Spell-Check\\SpellChecker\\src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario\\dictionary pt-br.dic");
+        String arquivo = new File("src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario\\dictionary pt-br.dic").getAbsolutePath();
         expResult.add(arquivo);
         ArrayList<String> result = instance.unZip(arquivoZipado, pastaSaida);
         assertEquals(expResult, result);
+        
     }
     
 }

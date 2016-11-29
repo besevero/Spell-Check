@@ -9,69 +9,53 @@ import lombok.Data;
  * @author Bernardo
  */
 @Data public class ArvoreBK {
-    
     private No raiz;
-    //Seleciona o tipo de distancia a ser utilizada
-    private CalculadoraDistancia calculadoraDistancia;
+    private CalculadoraDistancia calculadora;
 
-    /**
-     * Construtor cria uma arvore com base na distancia de Levenshtein (codigo = 000)
-     * ou com base em Damerau-Levenshtein (codigo = 001)
-     */
-    
-    public ArvoreBK(int codigo) 
-    {
-        this.calculadoraDistancia = new CalculadoraDistancia(codigo) ;
-    }
-    
-    /**
-    * executa busca
-    */
-	public List<String> buscaPalavra(String palavraDesejada, double distanciaMaxima) 
+	public ArvoreBK(CalculadoraDistancia calculadora)
         {
-            return raiz.busca(palavraDesejada, (int) distanciaMaxima, calculadoraDistancia);
+		this.calculadora = calculadora;
 	}
-	
-	/**
-	 * Inclui um novo no como filho
-	 */
-	public void adicionaNoInterno(No noOriginal, No novoNo) 
+
+	// Adiciona no na árvore
+	public void adicionaNo(String no)
         {
-            /**
-             * Verifica se o nó a ser inserido é igual ao anterior.
-             * Se for, interrompe o algoritimo
-             */
-            if (noOriginal.equals(novoNo))
+            if (no == null || no.isEmpty()) {}
+            else
+            {
+                No novoNo = new No(no);
+                if(raiz == null) raiz = novoNo;
+                else adicionaNoInterno(raiz, novoNo);
+            }
+	}
+
+	//Adiciona lista de palavras na árvore
+	 public void adicionaNoLista(List<String> nos)
+         {
+             for(String no : nos)
+             {
+                 adicionaNo(no);
+             }
+	}
+
+	// Adiciona nó interno na árvore
+	private void adicionaNoInterno(No noOriginal, No noNovo) 
+        {
+            if (noOriginal.equals(noNovo)) 
             {
                 return;
             }
-        //calcula a distância entre as palavras em cada nó
-            double distancia = calculadoraDistancia.getTipoEscolhido().calcular(noOriginal.getPalavra(), novoNo.getPalavra());
-        //Define uma variável auxiliar para fazer a busca
-            No noAuxiliar = noOriginal.buscaFilho((int)distancia);
-	//se o auxiliar for nulo insere o nó na árvore.
-            if (noAuxiliar == null) 
+            int distancia = (int) calculadora.getTipoEscolhido()
+                    .calcular(noOriginal.getPalavra(), noNovo.getPalavra());
+            No noBK = noOriginal.filhosDistancia(distancia);
+            if (noBK == null)
             {
-                noOriginal.incluirFilho((int)distancia, novoNo);
+                noOriginal.adicionaFilho(distancia, noNovo);
             }
-        //Se não for nulo repete a operação de modo recursivo
+		// senao adiciona nó como filho
             else
             {
-               adicionaNoInterno(noAuxiliar, novoNo);
+                adicionaNoInterno(noBK, noNovo);
             }
-	}    
-    
-        /**
-	 * Inclui uma nova palavra na Árvore.
-	 */
-	public void adicionaNo(String palavraDesejada) 
-        {
-            //Se a raiz for nula, insere a palavra na raiz.
-            No novoNo = new No(palavraDesejada);
-            if (raiz == null) 
-            {
-		raiz = novoNo;
-            }
-            adicionaNoInterno(raiz, novoNo);
 	}
 }

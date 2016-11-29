@@ -5,6 +5,8 @@
  */
 package com.mycompany.spellchecker.Arvore;
 
+import com.mycompany.spellchecker.Calculadora.CalculadoraDistancia;
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -39,32 +41,30 @@ public class ArvoreBKTest {
     }
 
     /**
-     * Test of buscaPalavra method, of class ArvoreBK.
-     */
-    @Test
-    public void testBuscaPalavra() {
-        System.out.println("buscaPalavra");
-        String palavraDesejada = "";
-        int distanciaMaxima = 0;
-        ArvoreBK instance = null;
-        List<String> expResult = null;
-        List<String> result = instance.buscaPalavra(palavraDesejada, distanciaMaxima);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of adicionaNo method, of class ArvoreBK.
      */
     @Test
     public void testAdicionaNo() {
         System.out.println("adicionaNo");
-        String palavraDesejada = "";
+        String no = "";
         ArvoreBK instance = null;
-        instance.adicionaNo(palavraDesejada);
+        instance.adicionaNo(no);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of adicionaNoLista method, of class ArvoreBK.
+     */
+    @Test
+    public void testAdicionaNoLista() {
+        List<String> nos = new ArrayList<>();
+        nos.add("casa"); nos.add("omelete");
+        CalculadoraDistancia levenshtein = new CalculadoraDistancia(000);
+        ArvoreBK instance = new ArvoreBK(levenshtein);
+        instance.adicionaNoLista(nos);
+        System.out.println(instance.getRaiz().filhosDistancia(0));
+        assertEquals("casa", instance.getRaiz().getPalavra());        
     }
     
 }

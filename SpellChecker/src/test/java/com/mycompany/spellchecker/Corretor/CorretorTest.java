@@ -6,8 +6,10 @@
 package com.mycompany.spellchecker.Corretor;
 
 import com.mycompany.spellchecker.Arvore.No;
+import com.mycompany.spellchecker.Calculadora.CalculadoraDistancia;
 import com.mycompany.spellchecker.Dicionario.Descompactador;
 import com.mycompany.spellchecker.Dicionario.Dicionario;
+import java.io.File;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -45,23 +47,23 @@ public class CorretorTest {
      */
     @Test
     public void testCorretorPalavras() {
-        String arquivoZipado = "src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario\\dictionary_pt-br.zip";
-        String pastaSaida = "src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario";            
+        String arquivoZipado = new File("src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario\\dictionary_pt-br.zip").getAbsolutePath();
+        String pastaSaida = new File("src\\main\\java\\com\\mycompany\\spellchecker\\Dicionario").getAbsolutePath();            
                        
         Descompactador unZipper = new Descompactador(arquivoZipado, pastaSaida);
+        CalculadoraDistancia levenshtein = new CalculadoraDistancia(000);
         
-        Dicionario dicionario = new Dicionario(unZipper, 000);
-        dicionario.insercaoPorArquivo("kasa");
-        
-        
+        Dicionario dicionario = new Dicionario(unZipper, levenshtein);
+        dicionario.insercaoPorArquivo();
         No noAuxiliar = dicionario.getArvoreDicionarioBK().getRaiz();
         
-                
+        System.out.println(dicionario.getArvoreDicionarioBK().getRaiz());
         Corretor instance = new Corretor(dicionario);
 
-        String result = instance.corretorPalavras("kasa", noAuxiliar, 2);
+        String result = instance.corretorPalavras("kasa", noAuxiliar, 1);
         
         assertEquals("casa", result);
     }
-    
+
+   
 }

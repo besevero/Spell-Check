@@ -1,7 +1,7 @@
 package com.mycompany.spellchecker.Dicionario;
 
 import com.mycompany.spellchecker.Arvore.ArvoreBK;
-import com.mycompany.spellchecker.Arvore.No;
+import com.mycompany.spellchecker.Calculadora.CalculadoraDistancia;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -19,10 +19,10 @@ import lombok.Data;
   private ArrayList<String> caminhosDosArquivos;
 
     //Construtor da classe
-  public Dicionario(Descompactador arquivoDescompactado, int codigo)
+  public Dicionario(Descompactador arquivoDescompactado, CalculadoraDistancia calculadora)
   {
       this.caminhosDosArquivos = arquivoDescompactado.getCaminhos();
-      this.arvoreDicionarioBK = new ArvoreBK(codigo);
+      this.arvoreDicionarioBK = new ArvoreBK(calculadora);
   }
  
   /**
@@ -30,14 +30,11 @@ import lombok.Data;
    * faz a leitura do arquivo descompactado  e
    * insere os valores na arvoreBK
   */
-  public boolean insercaoPorArquivo(String palavraInicial)
+  public boolean insercaoPorArquivo()
   {     
         BufferedReader fileread;
-        No inicial = new No(palavraInicial);
-        arvoreDicionarioBK.setRaiz(inicial);
-        
         //Verifica se o códgo da calculadora é correto.
-        if(!arvoreDicionarioBK.getCalculadoraDistancia().isValidador())
+        if(!arvoreDicionarioBK.getCalculadora().isValidador())
         {
             //se o código não for correto, a função retorna falso e se encerra
             return false;
@@ -51,18 +48,14 @@ import lombok.Data;
                 {
                     fileread = new BufferedReader(new InputStreamReader(new FileInputStream(caminhosDosArquivos.get(j))));
                     String linha;
-                    No noOriginal = arvoreDicionarioBK.getRaiz();
-                    
+                                        
                     while((linha = fileread.readLine()) != null )
-                    { 
-                        No novoNo = new No(linha);
-                        arvoreDicionarioBK.adicionaNoInterno(noOriginal, novoNo);
-                        noOriginal = novoNo;
+                    {
+                        arvoreDicionarioBK.adicionaNo(linha);
                         
                     }
                     fileread.close();
                 }
-
             }
             catch (FileNotFoundException ex) 
             {
@@ -74,6 +67,7 @@ import lombok.Data;
                 System.out.println("Erro: " + ex.getMessage());
                 return false;
             }
+            
             return true;
         }
     }

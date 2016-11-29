@@ -24,7 +24,7 @@ import lombok.Data;
       if(noAuxiliar != null)
       {
             //faz a busca da distancia em relação a palavra inserida e compara com a precisão 
-            if (dicionarioBase.getArvoreDicionarioBK().getCalculadoraDistancia()
+            if (dicionarioBase.getArvoreDicionarioBK().getCalculadora()
                    .getTipoEscolhido().calcular(palavraInserida, noAuxiliar.getPalavra())
                     <= precisao) 
             {
@@ -34,10 +34,10 @@ import lombok.Data;
           
           else
           {
-              double distancia = dicionarioBase.getArvoreDicionarioBK().getCalculadoraDistancia()
+              double distancia = dicionarioBase.getArvoreDicionarioBK().getCalculadora()
                     .getTipoEscolhido().calcular(palavraInserida, noAuxiliar.getPalavra());
                 
-              No novoNoAuxiliar = noAuxiliar.buscaFilho((int) distancia);
+              No novoNoAuxiliar = noAuxiliar.filhosDistancia((int) distancia);
             
               return corretorPalavras(palavraInserida, novoNoAuxiliar, precisao);
            }
