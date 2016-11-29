@@ -7,23 +7,21 @@ import lombok.Data;
  */
 @Data public class DistanciaDamerau extends Distancia{
     
-    //Funçao que calcula a distancia de Damerau-Levenshtein
+    /**
+     * Funçao que calcula a distancia de Damerau-Levenshtein
+     */ 
     public double calcular(String palavraInserida, String palavraDicionario)
    {
        //Variaveis que definem o tamanho da matriz
        int tamanhoPalavraInserida = palavraInserida.length(),
            tamanhoPalavraDicionario = palavraDicionario.length();
-       /**
-        * Variável da Matriz
-        */
-       int[][] distancia = new int[tamanhoPalavraInserida+1][tamanhoPalavraDicionario+1];
-      
-       //Define o valor que irá popular a tabela da matriz
+       // Variável da Matriz
+        int[][] distancia = new int[tamanhoPalavraInserida+1][tamanhoPalavraDicionario+1];
+      //Define o valor que irá popular a tabela da matriz
        int custoDistancia =0;
        
        //cria a matriz com a tabela de distancia
-        
-       for(int i = 0; i <= tamanhoPalavraInserida; i++)
+        for(int i = 0; i <= tamanhoPalavraInserida; i++)
        {
            distancia[i][0] = i;
        }

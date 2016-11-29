@@ -11,7 +11,9 @@ import java.util.ArrayList;
 @Data public class Descompactador {
 
     private ArrayList<String> caminhos;
-    
+/**
+ * Faz a descompactação do Zip
+ */    
     public Descompactador(String arquivoZipado, String pastaSaida)
     {
         Unzip descompactar = new Unzip();

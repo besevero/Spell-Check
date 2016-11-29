@@ -27,7 +27,9 @@ public @Data class Teclado {
     private final String ALFABETO = "abcdefghijklmnopqrstuvwxyz";
 
     public Teclado() {}
-    
+/**
+ *Construtor
+ */ 
     public Teclado(String modelo, String linha, String linha2, String linha3, double offset2, double offset3) {
         this.modelo = modelo;
         this.linha = linha;
@@ -37,6 +39,9 @@ public @Data class Teclado {
         this.offset3 = offset3;
     }
     
+    /**
+      * Prepara a matriz do tgeclado neutro
+      */ 
     public double[][] preparaDistanciasNeutro()
     {
         for(int i = 0; i < ALFABETO.length() ; i++)
@@ -49,7 +54,9 @@ public @Data class Teclado {
         }
         return matrizAlfabeto;
     }
-    //faz a leitura das linhas e insere em uma matriz.
+    /**
+     * faz a leitura das linhas e insere em uma matriz.
+     */
     public char[][] preparaMatrizAlfabetoTeclado()
     {
         char[][] matrizAlfabetoTeclado = new char[3][10];
@@ -69,7 +76,9 @@ public @Data class Teclado {
         return matrizAlfabetoTeclado;
     }
     
-    //cria uma matriz com as distâncias entre as letras com base em cada layout de teclado
+    /**
+     * cria uma matriz com as distâncias entre as letras com base em cada layout de teclado
+     */
     public double[][] preparaDistancias()
     {
        char[][] matrizAlfabetoTeclado = preparaMatrizAlfabetoTeclado();
@@ -118,6 +127,10 @@ public @Data class Teclado {
             
         return matrizAlfabeto;
     }
+    /**
+     * Pega a posição das letras no alfabeto
+     * e retorna o valor na posção da matriz
+     */
    public double obtemDistanciaNominal(char a, char b)
    {
        a = Character.toLowerCase(a);

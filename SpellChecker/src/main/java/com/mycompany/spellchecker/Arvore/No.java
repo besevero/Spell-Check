@@ -20,17 +20,23 @@ public class No {
             this.filhos = new HashMap<>();
             this.palavra = palavra;
 	}
-	//Obtem o filho na posição da distancia no hashMap
+	/**
+         * Obtem o filho na posição da distancia no hashMap
+         */
 	public No filhosDistancia(int distancia) 
         {
             return filhos.get(distancia);
 	}
-	// Adicionar o nó na posição do hash
+	/**
+         * Adicionar o nó na posição do hash
+         */ 
 	public void adicionaFilho(double posicao, No noFilho) 
         {
             filhos.put(posicao, noFilho);
 	}
-        //faz busca
+        /**
+         * faz busca
+         */ 
 	public List<String> busca(String no, int distanciaMaxima, CalculadoraDistancia calculadora) 
         {
             List<String> palavrasPossiveis = new ArrayList<String>();
@@ -54,7 +60,11 @@ public class No {
             }
             return palavrasPossiveis;
 	}
-        
+        /**
+         * faz a comparação de duas strings
+         * @param no
+         * @return 
+         */
         public boolean comparaPalavras(No no)
         {
             return palavra.equals(no.getPalavra());

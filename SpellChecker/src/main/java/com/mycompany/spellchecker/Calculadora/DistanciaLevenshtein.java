@@ -9,7 +9,9 @@ import lombok.NoArgsConstructor;
  */
 public class DistanciaLevenshtein extends Distancia{
 
-    //faz o cálculo da distancia
+    /**
+     * faz o cálculo da distancia
+     */ 
    public double calcular(String palavraInserida, String palavraDicionario)
    {
        int tamanhoPalavraInserida = palavraInserida.length(),

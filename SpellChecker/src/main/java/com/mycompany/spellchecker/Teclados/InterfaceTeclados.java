@@ -12,7 +12,9 @@ package com.mycompany.spellchecker.Teclados;
 public class InterfaceTeclados {
     
     public InterfaceTeclados(){}
-     
+  /**
+    *obtem o layout e prepara as distancias conforme o mesmo.
+    */ 
     public double[][] prepararDistancias(Teclado layouts)
     {
         double[][] matrizAlfabeto = new double[26][26];

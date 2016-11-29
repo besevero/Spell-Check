@@ -18,7 +18,9 @@ import lombok.Data;
   private ArvoreBK arvoreDicionarioBK; 
   private ArrayList<String> caminhosDosArquivos;
 
-    //Construtor da classe
+    /**
+     * Construtor da classe
+     */ 
   public Dicionario(Descompactador arquivoDescompactado, CalculadoraDistancia calculadora)
   {
       this.caminhosDosArquivos = arquivoDescompactado.getCaminhos();

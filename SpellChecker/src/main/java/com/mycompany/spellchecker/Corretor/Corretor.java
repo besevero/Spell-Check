@@ -12,13 +12,17 @@ import lombok.Data;
     
     private Dicionario dicionarioBase;
     
-    //Inicializa o corretor com o código 
+    /**
+     * Inicializa o corretor com o código 
+     */ 
     public Corretor(Dicionario dicionarioUsado)
     {
         this.dicionarioBase = dicionarioUsado;
         
     }
-        
+       /**
+        * Executa a correção das palavras
+        */ 
     public String corretorPalavras(String palavraInserida, No noAuxiliar, int precisao)
     {
       if(noAuxiliar != null)

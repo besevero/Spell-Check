@@ -19,15 +19,21 @@ import lombok.Getter;
    
    private @Getter Distancia tipoEscolhido;
 
-//verifica se é uma opção valida;
+/**
+ * verifica se é uma opção valida;
+ */ 
    private boolean validador;
 
-//Construtor.
+/**
+ * Construtor.
+ */ 
    public CalculadoraDistancia(int selecao)
    {
        insereSelecao(selecao) ;
    }
-//Função que chamará o modo de calculo escolhido
+/**
+ * Função que chamará o modo de calculo escolhido
+ */ 
    public boolean insereSelecao(int selecao){
        switch(selecao){
            case(000): 

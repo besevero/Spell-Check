@@ -18,7 +18,9 @@ public class LeitorTeclados {
     private ArrayList<Teclado> listagemTeclados = new ArrayList<>();
     
     public LeitorTeclados(){}
-    
+/**
+ * Faz a leitura do XML
+ */ 
     public ArrayList<Teclado> leitorTeclados() 
     {
         try 

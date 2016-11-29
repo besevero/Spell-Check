@@ -17,7 +17,9 @@ import lombok.Data;
 		this.calculadora = calculadora;
 	}
 
-	// Adiciona no na árvore
+	/**
+         * Adiciona no na árvore
+         */
 	public void adicionaNo(String no)
         {
             if (no == null || no.isEmpty()) {}
@@ -29,7 +31,10 @@ import lombok.Data;
             }
 	}
 
-	//Adiciona lista de palavras na árvore
+	/**
+         * Adiciona lista de palavras na árvore
+         * 
+         */
 	 public void adicionaNoLista(List<String> nos)
          {
              for(String no : nos)
@@ -38,7 +43,9 @@ import lombok.Data;
              }
 	}
 
-	// Adiciona nó interno na árvore
+	/**
+         * Adiciona nó interno na árvore
+         */
 	private void adicionaNoInterno(No noOriginal, No noNovo) 
         {
             if (noOriginal.equals(noNovo)) 
