@@ -5,6 +5,7 @@
  */
 package com.mycompany.spellchecker.Teclados;
 
+import Teclados.Teclado;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

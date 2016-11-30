@@ -1,5 +1,7 @@
 package com.mycompany.spellchecker.Teclados;
 
+import Teclados.Teclado;
+import Teclados.LeitorTeclados;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
