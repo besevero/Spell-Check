@@ -49,9 +49,9 @@ public class No {
          * @param calculadora
          * @return 
          */ 
-	public List<String> busca(String no, int distanciaMaxima, CalculadoraDistancia calculadora) 
+	public ArrayList<String> busca(String no, int distanciaMaxima, CalculadoraDistancia calculadora) 
         {
-            List<String> palavrasPossiveis = new ArrayList<>();
+            ArrayList<String> palavrasPossiveis = new ArrayList<>();
             int distancia = (int) calculadora.getTipoEscolhido().calcular(getPalavra(), no);
             
             if(distancia <= distanciaMaxima)    palavrasPossiveis.add(palavra);

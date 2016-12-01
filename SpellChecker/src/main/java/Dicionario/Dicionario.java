@@ -61,6 +61,7 @@ import lombok.Data;
                         linha = linha.replace(".","");
                         linha = linha.replace(",", "");
                         linha = linha.replace(" ", "");
+                        linha = linha.replace("ç", "c");
                         arvoreDicionarioBK.adicionaNo(linha);
                         
                     }

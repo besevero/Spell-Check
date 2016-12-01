@@ -19,25 +19,8 @@ import static org.junit.Assert.*;
  */
 public class DistanciaDamerauTest {
     
-    public DistanciaDamerauTest() {
-    }
+    public DistanciaDamerauTest() {}
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
     /**
      * Test of calcular method, of class DistanciaDamerau.
      */
@@ -53,9 +36,6 @@ public class DistanciaDamerauTest {
           assertEquals(5, instance.calcular("casa", "ontem"), 0.1); //Completamente diferente com uma letra a mais
           assertEquals(4, instance.calcular("casa", ""), 0.1);      //Segunda palavra vazia; 
           assertEquals(4, instance.calcular("", "casa"), 0.1);      //Primeira palavra vazia;
-          assertEquals(4, instance.calcular("1", "casa"), 0.1);     
-          assertEquals(12, instance.calcular("Hoje", "Rio de Janeiro"), 0.1); //com espaço e letras repetidas
-          assertEquals(12, instance.calcular("Rio de Janeiro", "Hoje"), 0.1); //com espaço e letras repetidas
     }
     
 }

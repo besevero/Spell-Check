@@ -35,24 +35,26 @@ public class DicionarioTest {
      */
     @Test
     public void testInsercaoPorArquivo() throws IOException {
+        
         String arquivoZipado = new File("src\\main\\java\\dictionary_pt-br.zip").getAbsolutePath();
         String pastaSaida = new File("src\\main\\java").getAbsolutePath();            
-       LeitorTeclados leitor = new LeitorTeclados();
+        LeitorTeclados leitor = new LeitorTeclados();
         ArrayList<Teclado> teclados = leitor.leitorTeclados();
                 
         Descompactador unZipper = new Descompactador(arquivoZipado, pastaSaida);
         
-        /*CalculadoraDistancia levenshtein = new CalculadoraDistancia(000, teclados.get(0));
+        CalculadoraDistancia levenshtein = new CalculadoraDistancia(000, teclados.get(0));
         Dicionario instance = new Dicionario(unZipper, levenshtein);
         boolean expResult = true;
         boolean result = instance.insercaoPorArquivo();
-        assertEquals(expResult, result);*/
-        
+        assertEquals(expResult, result);
+        System.out.print(instance.getArvoreDicionarioBK().getRaiz().busca("CASA", 1, levenshtein));
         CalculadoraDistancia damerau = new CalculadoraDistancia(001, teclados.get(0));
         Dicionario instance2 = new Dicionario(unZipper, damerau);
         boolean expResult2 = true;
         boolean result2 = instance2.insercaoPorArquivo();
         assertEquals(expResult2, result2);
+        
         
         CalculadoraDistancia erro = new CalculadoraDistancia(385, teclados.get(0));
         Dicionario instance3 = new Dicionario(unZipper, erro);

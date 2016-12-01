@@ -107,7 +107,6 @@ public @Data class Teclado {
    {
        preparaDistancias();
        if(a == b) return 0;
-       if(a == ' ' | b ==  ' ') return 1;
        else return matrizAlfabeto[a - 'A'][b - 'A'];
    }
   

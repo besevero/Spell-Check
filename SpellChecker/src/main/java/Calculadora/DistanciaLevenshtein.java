@@ -57,18 +57,16 @@ public class DistanciaLevenshtein extends Distancia{
                }
                else custoOperacao = 1;
                
-               custoDistanciaOperacao = teclado
-                       .obtemDistanciaNominal(palavraInserida.charAt(k-1), palavraDicionario.charAt(l-1));
-               
+              /* custoDistanciaOperacao = 
+                       teclado.obtemDistanciaNominal(palavraInserida.charAt(k-1),
+                               palavraDicionario.charAt(l-1));
+               */
                 distancia[k][l] = Math.min(distancia[k-1][l] + custoOperacao,
                                           Math.min(distancia[k][l-1] + custoOperacao,
-                                          distancia[k-1][l-1] + custoDistanciaOperacao));
+                                          distancia[k-1][l-1] + custoOperacao));
            }
            
        }
        return (int) distancia[tamanhoPalavraInserida][tamanhoPalavraDicionario];
-       
-       
    }
-        
 }
