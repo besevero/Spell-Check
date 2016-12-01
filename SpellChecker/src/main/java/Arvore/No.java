@@ -1,5 +1,5 @@
 package Arvore;
-import Calcuadora.CalculadoraDistancia;
+import Calculadora.CalculadoraDistancia;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,7 +13,7 @@ import lombok.Setter;
 public class No {
     
         private @Getter @Setter String palavra;
-	private HashMap<Integer, No> filhos;
+	private final HashMap<Integer, No> filhos;
 
         /**
          * Construtor
@@ -26,6 +26,8 @@ public class No {
 	}
 	/**
          * Obtem o filho na posição da distancia no hashMap
+         * @param distancia
+         * @return 
          */
 	public No filhosDistancia(int distancia) 
         {
@@ -33,6 +35,8 @@ public class No {
 	}
 	/**
          * Adicionar o nó na posição do hash
+         * @param posicao
+         * @param noFilho
          */ 
 	public void adicionaFilho(int posicao, No noFilho) 
         {
@@ -40,10 +44,14 @@ public class No {
 	}
         /**
          * faz busca
+         * @param no
+         * @param distanciaMaxima
+         * @param calculadora
+         * @return 
          */ 
 	public List<String> busca(String no, int distanciaMaxima, CalculadoraDistancia calculadora) 
         {
-            List<String> palavrasPossiveis = new ArrayList<String>();
+            List<String> palavrasPossiveis = new ArrayList<>();
             int distancia = (int) calculadora.getTipoEscolhido().calcular(getPalavra(), no);
             
             if(distancia <= distanciaMaxima)    palavrasPossiveis.add(palavra);

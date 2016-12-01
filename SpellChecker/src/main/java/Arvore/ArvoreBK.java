@@ -1,6 +1,6 @@
 package Arvore;
 
-import Calcuadora.CalculadoraDistancia;
+import Calculadora.CalculadoraDistancia;
 import java.util.List;
 import lombok.Data;
 
@@ -23,6 +23,7 @@ import lombok.Data;
 
 	/**
          * Adiciona no na árvore
+         * @param no
          */
 	public void adicionaNo(String no)
         {
@@ -37,6 +38,7 @@ import lombok.Data;
 
 	/**
          * Adiciona lista de palavras na árvore
+         * @param nos
          */
 	 public void adicionaNoLista(List<String> nos)
          {

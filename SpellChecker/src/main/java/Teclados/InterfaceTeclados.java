@@ -14,16 +14,14 @@ public class InterfaceTeclados {
     public InterfaceTeclados(){}
   /**
     *obtem o layout e prepara as distancias conforme o mesmo.
+    * @param layouts
+    * @return 
     */ 
     public double[][] prepararDistancias(Teclado layouts)
     {
         double[][] matrizAlfabeto = new double[26][26];
         switch(layouts.getModelo())
         {
-            case "Neutro":
-                matrizAlfabeto = layouts.preparaDistanciasNeutro();
-                break;
-                
             case "QWERTY":
                 matrizAlfabeto = layouts.preparaDistancias();
                 break;

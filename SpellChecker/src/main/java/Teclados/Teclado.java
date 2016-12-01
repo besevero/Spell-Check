@@ -5,6 +5,7 @@
  */
 package Teclados;
 
+import java.util.ArrayList;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,67 +18,35 @@ import lombok.Setter;
 public @Data class Teclado {
     
     private @Getter @Setter String modelo;
-    private @Getter @Setter String linha;
-    private @Getter @Setter String linha2;
-    private @Getter @Setter String linha3;
-    private @Getter @Setter double offset = 0;
-    private @Getter @Setter double offset2;
-    private @Getter @Setter double offset3;
+    private @Getter @Setter ArrayList<Linha> linhas = new ArrayList<>();
     private double[][] matrizAlfabeto = new double[26][26];
     private final String ALFABETO = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    public Teclado() {}
-/**
- *Construtor
- */ 
-    public Teclado(String modelo, String linha, String linha2, String linha3, double offset2, double offset3) {
-        this.modelo = modelo;
-        this.linha = linha;
-        this.linha2 = linha2;
-        this.linha3 = linha3;
-        this.offset2 = offset2;
-        this.offset3 = offset3;
-    }
-    
     /**
-      * Prepara a matriz do tgeclado neutro
-      */ 
-    public double[][] preparaDistanciasNeutro()
-    {
-        for(int i = 0; i < ALFABETO.length() ; i++)
-        {
-            for(int j = 0 ; j < ALFABETO.length() ; j++)
-            {
-                if(i == j) matrizAlfabeto[i][j] = 0;
-                else matrizAlfabeto[i][j] = 1;
-            }
-        }
-        return matrizAlfabeto;
-    }
+     *Construtor
+     */
+    public Teclado() {}
     /**
      * faz a leitura das linhas e insere em uma matriz.
+     * @return 
      */
     public char[][] preparaMatrizAlfabetoTeclado()
     {
         char[][] matrizAlfabetoTeclado = new char[3][10];
         
-        for(int i = 0 ; i < linha.length() ; i++)
+        for(int i = 0; i < linhas.size() ; i++)
         {
-            matrizAlfabetoTeclado[0][i] = linha.charAt(i);
+            for(int j = 0; j < linhas.get(i).getLinhaLetras().length() ; j++)
+            {
+                matrizAlfabetoTeclado[i][j] = linhas.get(i).getLinhaLetras().charAt(j);
+            }
         }
-        for(int i = 0 ; i < linha2.length() ; i++)
-        {
-            matrizAlfabetoTeclado[1][i] = linha2.charAt(i);
-        }
-        for(int i = 0 ; i < linha3.length() ; i++)
-        {
-            matrizAlfabetoTeclado[2][i] = linha3.charAt(i);
-        }
-        return matrizAlfabetoTeclado;
+     return matrizAlfabetoTeclado;
     }
     
     /**
      * cria uma matriz com as distâncias entre as letras com base em cada layout de teclado
+     * @return 
      */
     public double[][] preparaDistancias()
     {
@@ -111,38 +80,35 @@ public @Data class Teclado {
                         }
                     }
                     //define o offset conforme a linha onde o caracter está localizado
-                    if(indiceIx == 0) offsetX = getOffset();
-                    if(indiceIx == 1) offsetX = getOffset2();
-                    if(indiceIx == 2) offsetX = getOffset3();
+                    if(indiceIx == 0) offsetX = linhas.get(0).getOffset();
+                    if(indiceIx == 1) offsetX = linhas.get(1).getOffset();
+                    if(indiceIx == 2) offsetX = linhas.get(2).getOffset();
 
-                    if(indiceJx == 0) offsetY = getOffset();
-                    if(indiceJx == 1) offsetY = getOffset2();
-                    if(indiceJx == 2) offsetY = getOffset3();
+                    if(indiceJx == 0) offsetY = linhas.get(0).getOffset();
+                    if(indiceJx == 1) offsetY = linhas.get(1).getOffset();
+                    if(indiceJx == 2) offsetY = linhas.get(2).getOffset();
                 }
                 //Faz a triangulação das posições conforme os indices e define na posição do alfabeto
                 matrizAlfabeto[i][j] = Math.sqrt(Math.pow((indiceIx - indiceJx), 2)
                         + Math.pow((indiceIy + offsetX - indiceJy + offsetY), 2));
             }
         }   
-            
+        	            
         return matrizAlfabeto;
     }
     /**
      * Pega a posição das letras no alfabeto
      * e retorna o valor na posção da matriz
+     * @param a
+     * @param b
+     * @return 
      */
    public double obtemDistanciaNominal(char a, char b)
    {
-       int posicaoA = 0, posicaoB = 0;
-       
-       for (int i = 0; i < ALFABETO.length(); i++)
-       {
-           if(a == ALFABETO.charAt(i)) posicaoA = i;
-       }
-       for (int j = 0; j < ALFABETO.length(); j++)
-       {
-           if(b == ALFABETO.charAt(j)) posicaoB = j;
-       }
-       return matrizAlfabeto[posicaoA][posicaoB];
+       preparaDistancias();
+       if(a == b) return 0;
+       if(a == ' ' | b ==  ' ') return 1;
+       else return matrizAlfabeto[a - 'A'][b - 'A'];
    }
+  
 }

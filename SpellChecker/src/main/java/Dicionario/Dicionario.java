@@ -1,7 +1,7 @@
 package Dicionario;
 
 import Arvore.ArvoreBK;
-import Calcuadora.CalculadoraDistancia;
+import Calculadora.CalculadoraDistancia;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -20,6 +20,8 @@ import lombok.Data;
 
     /**
      * Construtor da classe
+     * @param arquivoDescompactado
+     * @param calculadora
      */ 
   public Dicionario(Descompactador arquivoDescompactado, CalculadoraDistancia calculadora)
   {
@@ -31,7 +33,8 @@ import lombok.Data;
    * Descompacta o arquivo, 
    * faz a leitura do arquivo descompactado  e
    * insere os valores na arvoreBK
-  */
+   * @return 
+   */
   public boolean insercaoPorArquivo()
   {     
         BufferedReader fileread;
@@ -53,6 +56,11 @@ import lombok.Data;
                                         
                     while((linha = fileread.readLine()) != null )
                     {
+                        linha = linha.replace("'", "");
+                        linha = linha.replace("-", "");
+                        linha = linha.replace(".","");
+                        linha = linha.replace(",", "");
+                        linha = linha.replace(" ", "");
                         arvoreDicionarioBK.adicionaNo(linha);
                         
                     }

@@ -13,6 +13,8 @@ import java.util.ArrayList;
     private ArrayList<String> caminhos;
 /**
  * Faz a descompactação do Zip
+     * @param arquivoZipado
+     * @param pastaSaida
  */    
     public Descompactador(String arquivoZipado, String pastaSaida)
     {
